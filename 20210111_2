@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int vzemiBitna(int x,int index);
+
+int main(void){
+    
+    int rez=vzemiBitna(10,3);
+    printf("%d\n", rez);
+
+    return 0;
+
+} 
+
+int vzemiBitna(int x,int index){
+    int mask=1;
+    x=x>>index;
+    int y=x&mask;
+    return y;
+}
