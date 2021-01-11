@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int vzemiBitna(int x,int index);
+
+int main(void){
+    
+    int rez=vzemiBitna(15,3);
+    printf("%d\n", rez);
+
+    return 0;
+
+} 
+
+int vzemiBitna(int x,int index){
+    int mask=1;
+    mask=mask<<index;
+    mask=~mask;
+    int y=x&mask;
+    return y;
+}
