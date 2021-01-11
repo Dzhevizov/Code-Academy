@@ -1,0 +1,13 @@
+#include <stdio.h>
+
+int main(void){
+    int x=10;
+    int index=2;
+    int mask=1;
+    mask=mask<<index;
+    int rez=x^mask;
+    printf("%d\n", rez);
+
+    return 0;
+
+} 
