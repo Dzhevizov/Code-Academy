@@ -1,17 +1,17 @@
 #include <stdio.h>
 
-int vzemiBitna(int x,int index);
+int iz4istiBitna(int x,int index);
 
 int main(void){
     
-    int rez=vzemiBitna(15,3);
+    int rez=iz4istiBitna(15,3);
     printf("%d\n", rez);
 
     return 0;
 
 } 
 
-int vzemiBitna(int x,int index){
+int iz4istiBitna(int x,int index){
     int mask=1;
     mask=mask<<index;
     mask=~mask;
