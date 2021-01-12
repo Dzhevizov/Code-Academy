@@ -1,19 +1,19 @@
 #include <stdio.h>
 
-int obarniBitna(int x,int index);
+int obarniBitna(unsigned int,unsigned int);
 
 int main(void){
     
-    int rez=obarniBitna(10,2);
+    unsigned int rez=obarniBitna(10,2);
     printf("%d\n", rez);
 
     return 0;
 
 } 
 
-int obarniBitna(int x,int index){
-    int mask=1;
+int obarniBitna(unsigned int x,unsigned int index){
+    unsigned int mask=1;
     mask=mask<<index;
-    int y=x^mask;
+    unsigned int y=x^mask;
     return y;
 }
