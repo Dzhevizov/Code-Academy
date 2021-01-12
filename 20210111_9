@@ -1,20 +1,20 @@
 #include <stdio.h>
 
-int nullPos(int x);
+int nullPos(unsigned int);
 
 int main(void){
     
     
-    int rez=nullPos(4095);
+    unsigned int rez=nullPos(4095);
     printf("%d\n", rez);
 
     return 0;
 
 } 
 
-int nullPos(int x){
-    int mask = 248;
+int nullPos(unsigned int x){
+    unsigned int mask = 248;
     mask=~mask;
-    int y=x&mask;
+    unsigned int y=x&mask;
     return y;
 }
