@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-int addDigit(int a, int b);
+int addDigit(int,int);
 
 int main(void){
     
-int res = addDigit(5,4);
-printf ("%d\n", res);
+int rez = addDigit(5,4);
+printf ("%d\n", rez);
 
     return 0;
 
