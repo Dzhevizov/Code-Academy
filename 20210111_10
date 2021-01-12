@@ -1,21 +1,21 @@
 #include <stdio.h>
 
-int nullAfterBit(int x,int index);
+int nullAfterBit(unsigned int, unsigned int);
 
 int main(void){
     
     
-    int rez=nullAfterBit(200,5);
+    unsigned int rez=nullAfterBit(200,5);
     printf("%d\n", rez);
 
     return 0;
 
 } 
 
-int nullAfterBit(int x,int index){
-    int mask = 4294967295;
+int nullAfterBit(unsigned int x,unsigned int index){
+    unsigned int mask = 4294967295;
     mask=mask<<index;
     mask=~mask;
-    int y=x&mask;
+    unsigned int y=x&mask;
     return y;
 }
