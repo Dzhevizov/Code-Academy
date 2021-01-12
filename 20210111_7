@@ -1,19 +1,19 @@
 #include <stdio.h>
 
-int nullEven(int x);
+int nullEven(unsigned int);
 
 int main(void){
     
     
-    int rez=nullEven(233);
+    unsigned int rez=nullEven(233);
     printf("%d\n", rez);
 
     return 0;
 
 } 
 
-int nullEven(int x){
-    int mask = 2863311530;
-    int y=x&mask;
+int nullEven(unsigned int x){
+    unsigned int mask = 2863311530;
+    unsigned int y=x&mask;
     return y;
 }
