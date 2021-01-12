@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int vdigniBit(int);
+
+int main(void){
+    
+   int rez = vdigniBit(130);
+   printf("%d\n", rez);
+  
+    return 0;
+
+} 
+
+int vdigniBit(int x){
+    int mask = 73;
+    int y=x|mask;
+    return y;
+}
+
+
+
