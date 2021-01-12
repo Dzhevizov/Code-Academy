@@ -1,19 +1,19 @@
 #include <stdio.h>
 
-int vdigniBitna(int x,int index);
+int vdigniBitna(unsigned int,unsigned int);
 
 int main(void){
     
-    int rez=vdigniBitna(10,2);
+    unsigned int rez=vdigniBitna(10,2);
     printf("%d\n", rez);
 
     return 0;
 
 } 
 
-int vdigniBitna(int x,int index){
-    int mask=1;
+int vdigniBitna(unsigned int x,unsigned int index){
+    unsigned int mask=1;
     mask=mask<<index;
-    int y=x|mask;
+    unsigned int y=x|mask;
     return y;
 }
