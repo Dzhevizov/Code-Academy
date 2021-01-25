@@ -1,16 +1,12 @@
 #include <stdio.h>
-int main(void)
-{
+int main(void){
     char c;
     c = getchar();
     int nl = 0;
-    while (c != EOF)
-    {
-        c = getchar();
+    while ((c = getchar()) != EOF){
         if (c == '\n'){
-            nl++;
-        }
-        
+            ++nl;
+        }    
     }
     printf("%d\n", nl);
     return 0;
