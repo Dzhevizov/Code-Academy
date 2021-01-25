@@ -1,24 +1,20 @@
 #include <stdio.h>
-int main(void)
-{
+int main(void){
     char c;
     c = getchar();
     int nl = 0;
     int nt = 0;
     int ns = 0;
-    while (c != EOF)
-    {
-        c = getchar();
+    while ((c = getchar()) != EOF){
         if (c == '\n'){
-            nl++;
+            ++nl;
         }
         if (c == '\t'){
-            nt++;
+            ++nt;
         }
         if (c == ' '){
-            ns++;
-        }
-        
+            ++ns;
+        } 
     }
     printf("New lines: %d\n", nl);
     printf("Tabs: %d\n", nt);
