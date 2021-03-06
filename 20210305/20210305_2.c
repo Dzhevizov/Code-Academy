@@ -22,9 +22,14 @@ int main(){
     int weightShipment = 0;
     int volumeShipment = 0;
     int numShipment = 0;
+    int totalWeight = 0;
+    int totalVolume = 0;
 
-    double *priceShipment;
+    double *priceShipment = 0;
     priceShipment = (double*)malloc(sizeof(double));
+
+    double *priceTotalShipment = 0;
+    priceTotalShipment = (double*)malloc(sizeof(double));
 
     printf("How many shipments do you have?\n");
     scanf("%d", &numShipment);
@@ -33,6 +38,8 @@ int main(){
 
         printf("Weight of shipment (in grams): \n");
         scanf("%d", &weightShipment);
+
+        totalWeight += weightShipment;
 
         if (weightShipment <= 20){
             *priceShipment += 0.46;
@@ -65,6 +72,8 @@ int main(){
         printf("Volume of shipment (in sm): \n");
         scanf("%d", &volumeShipment);
 
+        totalVolume += volumeShipment;
+
         if (volumeShipment < 10){
             *priceShipment += 0.01;
         }
@@ -94,5 +103,76 @@ int main(){
         }
     }
 
+    if (totalWeight > 3000){
+        printf("Your shipments are too big and cannot be combined.\n");
+        return 0;
+    }
+    else {
+        if (totalWeight <= 20){
+            *priceTotalShipment += 0.46;
+        }
+        else if (totalWeight <= 50){
+            *priceTotalShipment += 0.69;
+        }
+        else if (totalWeight <= 100){
+            *priceTotalShipment += 1.02;
+        }
+        else if (totalWeight <= 200){
+            *priceTotalShipment += 1.75;
+        }
+        else if (totalWeight <= 350){
+            *priceTotalShipment += 2.13;
+        }
+        else if (totalWeight <= 500){
+            *priceTotalShipment += 2.44;
+        }
+        else if (totalWeight <= 1000){
+            *priceTotalShipment += 3.20;
+        }
+        else if (totalWeight <= 2000){
+            *priceTotalShipment += 4.27;
+        }
+        else if (totalWeight <= 3000){
+            *priceTotalShipment += 5.03;
+        }
+
+        if (totalVolume < 10){
+            *priceTotalShipment += 0.01;
+        }
+        else if (totalVolume < 50){
+            *priceTotalShipment += 0.11;
+        }
+        else if (totalVolume < 100){
+            *priceTotalShipment += 0.22;
+        }
+        else if (totalVolume < 150){
+            *priceTotalShipment += 0.33;
+        }
+        else if (totalVolume < 250){
+            *priceTotalShipment += 0.56;
+        }
+        else if (totalVolume < 400){
+            *priceTotalShipment += 1.50;
+        }
+        else if (totalVolume < 500){
+            *priceTotalShipment += 3.11;
+        }
+        else if (totalVolume < 600){
+            *priceTotalShipment += 4.89;
+        }
+        else if (totalVolume > 600){
+            *priceTotalShipment += 5.79;
+        }
+    }
+
+    if (*priceTotalShipment <= *priceShipment){
+        printf("It is better to combine your shipments. In this case they will cost %f leva instead of %f leva\n", *priceTotalShipment, *priceShipment);
+    }
+    else {
+        printf("It is better to send your shipments separately. In this case they will cost %f leva instead of %f leva\n", *priceShipment, *priceTotalShipment);
+    }
+
+    free(priceShipment);
+    free(priceTotalShipment);
     return 0;
 }
