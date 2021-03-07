@@ -1,4 +1,5 @@
-/*Пощенските такси на дадена куриерска фирма се определят според
+/*
+Задача 2 Пощенските такси на дадена куриерска фирма се определят според
 тежестта на пратките (с точност до цял грам) и обема, както е показано в таблицата.
 Тегло (с точност до 1 грам) Такса до 20 г 0,46 лева; 21-50 г 0,69 лева; 51-100 г
 1,02 лева; 101-200 г 1,75 лева; 201-350 г 2,13 лева; 351-500 г 2,44 лева; 501-
@@ -13,27 +14,43 @@
 този случай изпращането ще струва ... лева.
 Изход 2:
 За пратки с тегло ... грама обем ... и ... грама ...обем е по-добре да бъдат изпратени заедно. В
-този случай изпращането ще струва ... лева.*/
+този случай изпращането ще струва ... лева.
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
+void getShipmentInfo(double *priceShipment, double *priceTotalShipment);
+void findBestShipmentOption(double *priceShipment, double *priceTotalShipment, int numShipment);
+
+int main(void){
+    
+    double *priceShipment = 0;
+    priceShipment = (double*)malloc(sizeof(double));
+
+    double *priceTotalShipment = 0;
+    priceTotalShipment = (double*)malloc(sizeof(double));
+    getShipmentInfo(priceShipment, priceTotalShipment);
+    free(priceShipment);
+    free(priceTotalShipment);
+    return 0;
+}
+
+void getShipmentInfo(double *priceShipment, double *priceTotalShipment){
     int weightShipment = 0;
     int volumeShipment = 0;
     int numShipment = 0;
     int totalWeight = 0;
     int totalVolume = 0;
 
-    double *priceShipment = 0;
-    priceShipment = (double*)malloc(sizeof(double));
-
-    double *priceTotalShipment = 0;
-    priceTotalShipment = (double*)malloc(sizeof(double));
-
     printf("How many shipments do you have?\n");
     scanf("%d", &numShipment);
 
+    if (numShipment < 1){
+        printf("You have decided not to send any shipment. Thank you for using our services.\n");
+        exit(1);
+    }
+    
     for (int i = 1; i <= numShipment; i++){
 
         printf("Weight of shipment (in grams): \n");
@@ -69,7 +86,7 @@ int main(){
             *priceShipment += 5.03;
         }
 
-        printf("Volume of shipment (in sm): \n");
+        printf("Volume of shipment (in cm): \n");
         scanf("%d", &volumeShipment);
 
         totalVolume += volumeShipment;
@@ -104,8 +121,8 @@ int main(){
     }
 
     if (totalWeight > 3000){
-        printf("Your shipments are too big and cannot be combined.\n");
-        return 0;
+        printf("Your shipment is too big. Maximum allowed weight is 3000 grams.\n");
+        exit(1);
     }
     else {
         if (totalWeight <= 20){
@@ -164,15 +181,18 @@ int main(){
             *priceTotalShipment += 5.79;
         }
     }
+    findBestShipmentOption(priceShipment, priceTotalShipment, numShipment);
+}
 
+void findBestShipmentOption(double *priceShipment, double *priceTotalShipment, int numShipment){
     if (*priceTotalShipment <= *priceShipment){
-        printf("It is better to combine your shipments. In this case they will cost %f leva instead of %f leva\n", *priceTotalShipment, *priceShipment);
+        if (numShipment == 1){
+            printf("Your shipment will cost %.2f leva.\n", *priceShipment);
+        } else{
+            printf("It is better to combine your shipments. In this case they will cost %.2f leva instead of %.2f leva.\n", *priceTotalShipment, *priceShipment);
+        }       
     }
     else {
-        printf("It is better to send your shipments separately. In this case they will cost %f leva instead of %f leva\n", *priceShipment, *priceTotalShipment);
+        printf("It is better to send your shipments separately. In this case they will cost %.2f leva instead of %.2f leva.\n", *priceShipment, *priceTotalShipment);
     }
-
-    free(priceShipment);
-    free(priceTotalShipment);
-    return 0;
 }
