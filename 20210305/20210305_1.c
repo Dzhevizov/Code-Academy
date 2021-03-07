@@ -8,6 +8,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h> /*needed for Linux INT_MAX */
 
 typedef struct shelf {
     int long_boards;
@@ -17,28 +18,28 @@ typedef struct shelf {
     int screws;
 } t_shelf;
 
-int main(){
-    int num_long_boards = 0;
-    int num_short_boards = 0;
-    int num_small_brackets = 0;
-    int num_large_brackets = 0;
-    int num_screws = 0;
-    int num_shelves = INT_MAX;
-    int num_possible_shelves = 0;
+void getWhatMaterialWeHave(t_shelf *shelf1);
+void howManyShelfsWeCanMake(t_shelf *shelf1, int num_long_boards, int num_short_boards,
+                            int num_small_brackets, int num_large_brackets, int num_screws);
 
+int main(void){
     typedef t_shelf *tp_shelf;
     tp_shelf shelf1 = (tp_shelf)malloc(sizeof(t_shelf));
     if (NULL == shelf1){
         printf("Allocation memory error\n");
         exit(1);
     }
+    getWhatMaterialWeHave(shelf1);   
+    free(shelf1);
+    return 0;
+}
 
-    shelf1->long_boards = 4;
-    shelf1->short_boards = 6;
-    shelf1->small_brackets = 12;
-    shelf1->large_brackets = 2;
-    shelf1->screws = 14;
-
+void getWhatMaterialWeHave(t_shelf *shelf1){
+    int num_long_boards = 0;
+    int num_short_boards = 0;
+    int num_small_brackets = 0;
+    int num_large_brackets = 0;
+    int num_screws = 0;
     printf("How many long boards do we have?\n");
     scanf("%d", &num_long_boards);
     printf("How many short boards do we have?\n");
@@ -49,7 +50,20 @@ int main(){
     scanf("%d", &num_large_brackets);
     printf("How many screws do we have?\n");
     scanf("%d", &num_screws);
+    howManyShelfsWeCanMake(shelf1, num_long_boards, num_short_boards,
+                           num_small_brackets, num_large_brackets, num_screws);
 
+}
+
+void howManyShelfsWeCanMake(t_shelf *shelf1, int num_long_boards, int num_short_boards,
+                            int num_small_brackets, int num_large_brackets, int num_screws){
+    int num_shelves = INT_MAX;
+    int num_possible_shelves = 0;
+    shelf1->long_boards = 4;
+    shelf1->short_boards = 6;
+    shelf1->small_brackets = 12;
+    shelf1->large_brackets = 2;
+    shelf1->screws = 14;
     num_possible_shelves = num_long_boards / shelf1->long_boards;
     if (num_shelves > num_possible_shelves){
         num_shelves = num_possible_shelves;
@@ -72,7 +86,4 @@ int main(){
     }
 
     printf("With our available materials we can made %d shelves.\n", num_shelves);
-
-    free(shelf1);
-    return 0;
 }
