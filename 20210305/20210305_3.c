@@ -14,22 +14,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(){
+int main(void){
     float *tempHut;
     float *tempPeak;
 
     tempHut = (float*)malloc(sizeof(float));
     tempPeak = (float*)malloc(sizeof(float));
 
+    int peakElevation = 2918;
+    int hutElevation = 1950;
+
+    float tempPer100MetersDif = 0.5;
+    int hundredMeters = 100;
+
     printf("What is temperature at hut Vihren?\n");
     scanf("%f", tempHut);
-    *tempPeak = *tempHut + (2918 - 1950) / 100 * 0.5;
-    printf("If atmospheric pressure is normal and temperature at hut Vihren is %f, then temperature at peak Vihren is %f\n", *tempHut, *tempPeak);
+    *tempPeak = *tempHut - (peakElevation - hutElevation) / hundredMeters * tempPer100MetersDif;
+    printf("If atmospheric pressure is normal and temperature at hut Vihren is %.2f, then temperature at peak Vihren is %.2f\n", *tempHut, *tempPeak);
 
     printf("What is temperature at peak Vihren?\n");
     scanf("%f", tempPeak);
-    *tempHut = *tempPeak - (2918 - 1950) / 100 * 0.5;
-    printf("If atmospheric pressure is normal and temperature at peak Vihren is %f, then temperature at hut Vihren is %f\n", *tempPeak, *tempHut);
+    *tempHut = *tempPeak + (peakElevation - hutElevation) / hundredMeters * tempPer100MetersDif;
+    printf("If atmospheric pressure is normal and temperature at peak Vihren is %.2f, then temperature at hut Vihren is %.2f\n", *tempPeak, *tempHut);
     
     free(tempHut);
     free(tempPeak);
