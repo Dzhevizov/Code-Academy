@@ -90,7 +90,10 @@ int main()
     xmlSchemaCleanupTypes();
     xmlCleanupParser();
     xmlMemoryDump();
-
+    
+    /*Компилира се с командата: gcc -I/usr/include/libxml project.c -lxml2 -o xmlvalid
+    ./xmlvalid test.xsd test1.xml test2.xml*/
+    
     /*След валидирането на двата xml файла за извеждане на разликите в тях се използва командата:
     diff test1.xml test2.xml*/
 
