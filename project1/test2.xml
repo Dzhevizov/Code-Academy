@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<purchaseOrder orderDate="1999-10-20">
+    <shipTo country="US">
+        <name>Jason Donovan</name>
+        <street>20 Liberty Park</street>
+        <city>New Town</city>
+        <state>PA</state>
+        <zip>95237</zip>
+    </shipTo>
+    <billTo country="US">
+        <name>Jason Donovan</name>
+        <street>20 Liberty Park</street>
+        <city>New Town</city>
+        <state>PA</state>
+        <zip>95237</zip>
+    </billTo>
+    <comment>Hurry, my lawn is going wild!</comment>
+    <items>
+        <item partNum="872-AA">
+            <productName>Lawnmower</productName>
+            <quantity>1</quantity>
+            <USPrice>148.95</USPrice>
+            <comment>Confirm this is electric</comment>
+        </item>
+    </items>
+</purchaseOrder>
+
