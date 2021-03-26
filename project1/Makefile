@@ -1,10 +1,11 @@
 CC=gcc
-COMPILE=$(CC) -I/usr/include/libxml
+FLAG1=-I/usr/include/libxml
+FLAG2=-lxml2
 CFILES=project.c
 OBJECT=project.o
 TARGET=xmlvalid
 all:
-	$(COMPILE) $(CFILES) -lxml2 -o $(TARGET)
+	$(CC) $(FLAG1) $(CFILES) $(FLAG2) -o $(TARGET)
 
 clean:
 	del $(TARGET) $(OBJECT)
