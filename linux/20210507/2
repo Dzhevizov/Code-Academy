@@ -1,0 +1,5 @@
+mkdir -p ~/projects/houses/doors/
+touch ~/projects/houses/bungalow.txt
+touch ~/projects/houses/doors/bifold.txt
+mkdir -p ~/projects/outdoors/vegetation/
+touch ~/projects/outdoors/vegetation/landscape.txt
