@@ -6,6 +6,7 @@ int protossTurnProcess(BattleField *battleField){
 
     fp = fopen("data.log", "a+");
     if (NULL == fp){
+        perror("Error:");
         fprintf(fp,"\nerrno: %d : %s\n", errno, strerror(errno));
     }
 
@@ -60,6 +61,7 @@ void terranShipDestroyed(protossShip *protossAirShip,int protossShipId,int terra
 
     fp = fopen("data.log", "a+");
     if (NULL == fp){
+        perror("Error:");
         fprintf(fp,"\nerrno: %d : %s\n", errno, strerror(errno));
     }
 
