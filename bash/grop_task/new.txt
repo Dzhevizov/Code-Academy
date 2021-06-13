@@ -1,0 +1,54 @@
+#include <stdio.h>
+
+void itob(int n, char s[], int b);
+int main(void) {
+    
+    int n = 0;
+    
+    int b = 2;
+    
+    char isNegative = 0;
+    printf("Enter a whole number: ");
+    scanf("%d", &n);
+    if (n < 0) {
+        isNegative = 1;
+        n = -n;
+    }
+    
+    char s[n];
+    printf("\nEnter a base for conversion: ");
+    scanf("%d", &b);
+    while (b < 2 || b > 36) {
+        printf("\nEnter a valid base for conversion (between 2 and 36): ");
+        scanf("%d", &b);
+    }
+    
+    printf("\n%d (10) -> ", n); 
+    if (isNegative != 0) {
+        if (b == 2) {
+            printf("1b");   
+        } else {
+            printf("-");
+        }
+    }
+        itob(n, s, b);
+    return 0;
+}
+void itob(int n, char s[], int b) {
+    int count = 0;
+    do {
+        if (n % b > 9) {
+            s[count] = 55 + (n % b);
+        }
+        else{
+            s[count] = '0' + n % b;
+        }
+        count++;
+        n /= b;
+    } while (n > 0);
+    while (count-- > 0) {
+        printf("%c", s[count]);
+    }
+    printf(" (%d)\n", b);
+    return;
+}
