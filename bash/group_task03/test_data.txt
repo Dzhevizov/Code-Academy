@@ -1,0 +1,16 @@
+year1=2000
+month1=02
+day1=29
+
+year2=2005
+month2=03
+day2=31
+
+year3=999
+month3=06
+day3=40
+
+year4=6666
+month4=15
+day4=5
+
