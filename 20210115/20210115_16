@@ -1,0 +1,18 @@
+#include <stdio.h>
+
+const float PI = 3.14159;
+
+int circleArea(float);
+
+int main(){
+    circleArea(1);
+    circleArea(1.5);
+    circleArea(13);
+        
+    return 0;
+}
+
+int circleArea(float R){
+    float circle_Area = R*R*PI;
+    printf("%f\n", circle_Area);
+    }

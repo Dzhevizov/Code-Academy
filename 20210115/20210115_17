@@ -1,0 +1,26 @@
+#include <stdio.h>
+
+const float PI = 3.14159;
+
+int circleArea(float);
+int ellipseArea(float,float);
+
+int main(){
+    circleArea(1);
+    circleArea(1.5);
+    circleArea(13);
+
+    ellipseArea(1.5,1);
+        
+    return 0;
+}
+
+int circleArea(float R){
+    float circle_Area = R*R*PI;
+    printf("%f\n", circle_Area);
+    }
+
+int ellipseArea(float A, float B){
+    float ellipse_Area = A*B*PI;
+    printf("%f\n", ellipse_Area);
+}

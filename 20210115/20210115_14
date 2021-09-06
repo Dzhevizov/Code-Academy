@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+void test();
+int g_integer = 5;
+
+int main(){
+    test();
+    test();
+    test();
+    
+    return 0;
+}
+
+void test(){
+    g_integer ++;
+    printf("%d\n", g_integer);
+    }
