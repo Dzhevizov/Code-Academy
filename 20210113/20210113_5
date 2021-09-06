@@ -1,0 +1,21 @@
+#include <stdio.h>
+
+int main(void){
+    
+    char cValue = 'b';
+    printf("%d\n", sizeof (cValue));
+    int iValue = 100;
+    printf("%d\n", sizeof (iValue));
+    float fValue = 3.5;
+    printf("%d\n", sizeof (fValue));
+    short int sValue = 300;
+    printf("%d\n", sizeof (sValue));
+    long long int lValue = 11111111;
+    printf("%d\n", sizeof (lValue));
+    unsigned long int ulValue = 2222222;
+    printf("%d\n", sizeof (ulValue));
+
+    return 0;
+
+} 
+

@@ -1,0 +1,28 @@
+#include <stdio.h>
+
+void bin(unsigned n) 
+{ 
+	unsigned i; 
+	for (i = 1 << 7; i > 0; i = i >> 1 ) 
+		(n & i)? printf("1"): printf("0"); 
+	printf("\n");
+}
+int main(){
+    char a = -10;
+    bin(a);
+    unsigned char z=0;
+    bin(z);
+    char rez = a+z;
+    bin(rez);
+    printf("%d\n", rez);
+    unsigned char rez1 = a+z;
+    bin(rez1);
+    printf("%d\n", rez1);
+}
+
+/*Тук виждаме, че ако при събиране на положително и отрицателно число
+за резултатната променлива неправилно използваме тип unsigned char, 
+вместо char ще получим в нашия случай отговор 246, вместо очаквания
+отговор -10. Това е така, защото и двете числа имат еднакъв бинарен вид,
+но са от различен тип.*/
+

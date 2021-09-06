@@ -1,0 +1,30 @@
+#include <stdio.h>
+
+
+int main(){
+
+int numberCaravans = 3;
+float priceCaravans = 90;
+int numberCampers = 3;
+float priceCampers = 100;
+
+printf("Welcome to 'Rent Caravans and Campers'!\n");
+printf("For Caravan type 1!\n");
+printf("For Camper type 2!\n");
+
+int rez;
+scanf("%d", &rez);
+
+if (rez==1){
+    printf("Your choice is a Caravan.\n");
+}
+else if (rez==2){
+    printf("Your choice is a Camper.\n");
+}
+else {
+    printf("Please make a valid choice!\n");
+}
+
+return 0;
+}
+

@@ -1,0 +1,51 @@
+#include <stdio.h>
+
+
+int main(){
+
+float tomatoPrice = 4.5;
+float flourPrice = 1.8;
+float yoghurtPrice = 0.5;
+float cornetIceCreamPrice = 0.6;
+float candiesPrice = 1.5;
+float lollipopsPrice = 0.15;
+
+printf("Hello! Welcome to our store! Today we offer fresh tomatoes, flour, yoghurt, cornet ice cream, candies and lollipops!\n");
+
+printf("How many kilograms of tomatoes would you like?\n");
+float tomatoWeight;
+scanf("%f", &tomatoWeight);
+
+printf("How many kilograms of flour would you like?\n");
+float flourWeight;
+scanf("%f", &flourWeight);
+
+printf("How many yogurts would you like?\n");
+int yoghurtNumber;
+scanf ("%d", &yoghurtNumber);
+
+printf("How many cornet ice creams would you like?\n");
+int cornetIceCreamNumber;
+scanf ("%d", &cornetIceCreamNumber);
+
+printf("How many kilograms of candies would you like?\n");
+float candiesWeight;
+scanf("%f", &candiesWeight);
+
+printf("How many lollipops would you like?\n");
+int lollipopsNumber;
+scanf("%d", &lollipopsNumber);
+
+float tomatoTotal = tomatoWeight*tomatoPrice;
+float flourTotal = flourWeight*flourPrice;
+float yoghurtTotal = yoghurtNumber*yoghurtPrice;
+float cornetIceCreamTotal = cornetIceCreamNumber*cornetIceCreamPrice;
+float candiesTotal = candiesWeight*candiesPrice;
+float lollipopsTotal = lollipopsNumber*lollipopsPrice;
+
+float total = tomatoTotal+flourTotal+yoghurtTotal+cornetIceCreamTotal+candiesTotal+lollipopsTotal;
+printf("Your bill is %.2f leva.\n", total);
+
+return 0;
+}
+

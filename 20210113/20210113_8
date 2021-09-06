@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+
+int main(void){
+
+char x = 8;
+printf("%d\n", x);    //Извежда резултат 8
+x = x - 2;
+printf("%d\n", x);    //Извежда резултат 6
+x = x + 6;
+printf("%d\n", x);    //Извежда резултат 12
+x = x - 10 + 2;
+printf("%d\n", x);    //Извежда резултат 4
+return 0;
+}
+
